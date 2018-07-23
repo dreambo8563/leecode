@@ -46,7 +46,10 @@ func longestCommonPrefix(strs []string) string {
 	}
 	min := len(strs[0])
 	pre := strs[0]
-	for _, str := range strs {
+	for index, str := range strs {
+		if index == 0 {
+			continue
+		}
 		if len(str) < min {
 			// update min lenght
 			min = len(str)
