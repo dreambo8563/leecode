@@ -79,10 +79,10 @@ func removeDuplicates(nums []int) int {
 		fmt.Println(nums)
 	}
 	// fmt.Println(sliceCursor)
-	return len(nums[:sliceCursor+1])
+	return sliceCursor + 1
 }
 
 func main() {
-	length := removeDuplicates([]int{})
+	length := removeDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
 	fmt.Printf("length: %v \n", length)
 }
