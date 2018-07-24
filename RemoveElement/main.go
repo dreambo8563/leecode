@@ -68,10 +68,8 @@ import (
  * }
  *
  */
-var count = 0
-
 func removeElement(nums []int, val int) int {
-
+	count := 0
 	for i, k := range nums {
 		if k == val {
 			nums[i] = nums[count]
