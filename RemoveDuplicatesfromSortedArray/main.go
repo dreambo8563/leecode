@@ -64,29 +64,25 @@ import (
  *
  */
 func removeDuplicates(nums []int) int {
-	// length := len(nums)
-	for i := 0; i < len(nums)-1; {
-		length := len(nums)
-		// fmt.Println(i)
-		// fmt.Printf("index: %v, value: %v \n", i, nums[i])
-		if i < length-1 {
-			next := nums[i+1]
-			// fmt.Printf("next: %v\n", next)
-			if nums[i] == next {
-				// remove current one
-				nums = append(nums[:i], nums[i+1:]...)
-				// fmt.Println(nums)
-				continue
-			}
+	if len(nums) == 0 {
+		return 0
+	}
+	sliceCursor := 0
+	for i := 1; i < len(nums); {
+		if nums[i] != nums[sliceCursor] {
+			nums[sliceCursor+1] = nums[i]
+			sliceCursor++
+		} else {
+
 		}
 		i++
-		// fmt.Println(nums)
-
+		fmt.Println(nums)
 	}
-	return len(nums)
+	// fmt.Println(sliceCursor)
+	return len(nums[:sliceCursor+1])
 }
 
 func main() {
-	length := removeDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})
+	length := removeDuplicates([]int{})
 	fmt.Printf("length: %v \n", length)
 }
