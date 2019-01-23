@@ -69,20 +69,26 @@ import (
  *
  */
 func removeElement(nums []int, val int) int {
-	count := 0
-	for i, k := range nums {
-		if k == val {
-			nums[i] = nums[count]
-			// fmt.Printf("count: %v, index: %v \n", count, i)
+	total := len(nums)
+	var count int
+	for i := 0; i < total; i++ {
+		if val != nums[i] {
+			// when 不相等
+			// 如果是最后一个就不用动了
+			if count < i {
+				// 把不同的值放到前面
+				nums[count] = nums[i]
+			}
+			// index+!
 			count++
 		}
-		// fmt.Printf("count: %v, index: %v \n", count, i)
 	}
-	nums = nums[count:]
-	fmt.Println(nums)
-	return len(nums)
+	nums = nums[:count]
+	return count
 }
 
 func main() {
-	fmt.Println(removeElement([]int{3, 2, 2, 3}, 3))
+	input := []int{0, 1, 2, 2, 3, 0, 4, 2}[:]
+	removeElement(input, 2)
+	fmt.Println(input)
 }
