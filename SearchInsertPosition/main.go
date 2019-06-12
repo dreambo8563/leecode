@@ -70,7 +70,7 @@ func searchInsert(nums []int, target int) int {
 		}
 		mid = (diff >> 1) + start
 		if target == nums[mid] {
-			for target == nums[mid] && mid >= start {
+			for mid >= 0 && target == nums[mid] && mid >= start {
 				fmt.Printf("inside loop, mid: %d \n", mid)
 				mid--
 			}
@@ -93,5 +93,5 @@ func searchInsert(nums []int, target int) int {
 }
 
 func main() {
-	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 0))
+	fmt.Println(searchInsert([]int{1, 3}, 1))
 }
